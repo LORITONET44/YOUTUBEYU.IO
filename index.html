@@ -34,8 +34,12 @@
       font-size: 1.1em;
     }
 
-    button {
+    .btn-container {
       margin-top: 15px;
+    }
+
+    button {
+      margin: 5px;
       padding: 10px 25px;
       font-size: 1.2em;
       border: none;
@@ -84,7 +88,6 @@
       margin: 10px 0 5px;
     }
 
-    /* Modal */
     #modal {
       display: none;
       position: fixed;
@@ -119,8 +122,12 @@
   <header>
     <h1>DE TODITO-LORITONET</h1>
     <input type="text" id="search" placeholder="Buscar videos...">
-    <br>
-    <button onclick="mostrarVideos()">Videos</button>
+    <div class="btn-container">
+      <button onclick="mostrarVideos()">Videos</button>
+      <a href="series.html">
+        <button>Series</button>
+      </a>
+    </div>
   </header>
 
   <div id="gallery"></div>
@@ -131,33 +138,32 @@
   </div>
 
   <script>
-const videos = [
-  {
-    title: "Dragon Ball Z - Majin Buu",
-    description: "Episodio clásico de DBZ desde Internet Archive.",
-    thumbnail: "https://archive.org/download/DragonBallZMajinBuu/DragonBallZMajinBuu.jpg",
-    url: "https://archive.org/embed/DragonBallZMajinBuu"
-  },
-  {
-    title: "Naruto Shippuden - Batalla final",
-    description: "Naruto vs Sasuke desde archive.org.",
-    thumbnail: "https://archive.org/download/NarutoShippudenFinalBattle/NarutoShippudenFinalBattle.jpg",
-    url: "https://archive.org/embed/NarutoShippudenFinalBattle"
-  },
-  {
-    title: "One Piece - Aventura en alta mar",
-    description: "Luffy lidera la búsqueda del One Piece.",
-    thumbnail: "https://archive.org/download/OnePieceTreasureHunt/OnePieceTreasureHunt.jpg",
-    url: "https://archive.org/embed/OnePieceTreasureHunt"
-  },
-  {
-    title: "Evangelio-castellano",
-    description: "El inicio de un fin.",
-    thumbnail: "https://images5.alphacoders.com/106/1062196.jpg",
-    url: "https://archive.org/embed/evangelioncastellano"
-  }
-];
-
+    const videos = [
+      {
+        title: "Dragon Ball Z - Majin Buu",
+        description: "Episodio clásico de DBZ desde Internet Archive.",
+        thumbnail: "https://archive.org/download/DragonBallZMajinBuu/DragonBallZMajinBuu.jpg",
+        url: "https://archive.org/embed/DragonBallZMajinBuu"
+      },
+      {
+        title: "Naruto Shippuden - Batalla final",
+        description: "Naruto vs Sasuke desde archive.org.",
+        thumbnail: "https://archive.org/download/NarutoShippudenFinalBattle/NarutoShippudenFinalBattle.jpg",
+        url: "https://archive.org/embed/NarutoShippudenFinalBattle"
+      },
+      {
+        title: "One Piece - Aventura en alta mar",
+        description: "Luffy lidera la búsqueda del One Piece.",
+        thumbnail: "https://archive.org/download/OnePieceTreasureHunt/OnePieceTreasureHunt.jpg",
+        url: "https://archive.org/embed/OnePieceTreasureHunt"
+      },
+      {
+        title: "Evangelio-castellano",
+        description: "El inicio de un fin.",
+        thumbnail: "https://images5.alphacoders.com/106/1062196.jpg",
+        url: "https://archive.org/embed/evangelioncastellano"
+      }
+    ];
 
     const gallery = document.getElementById("gallery");
     const searchInput = document.getElementById("search");
@@ -198,7 +204,6 @@ const videos = [
       document.getElementById("videoFrame").src = "";
     }
 
-    // Activar búsqueda con Enter
     searchInput.addEventListener("keyup", function(e) {
       if (e.key === "Enter") {
         mostrarVideos();
